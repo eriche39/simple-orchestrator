@@ -2,7 +2,7 @@
 
 Simple Orchestrator is a java library that can simplify your application development.
 
-## It has have few features that just done that:
+## Features that just done that:
 
 ###1. Promote modulization and isolation:
     Create your functional blocks and services as Tasks.
