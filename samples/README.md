@@ -1,9 +1,12 @@
 #Samples
+Two sample RESTful services are provided.
+1. Card application service simulates credit/debit card application service.
+2. Loan application service.
 
 ## Start the application:
 run SampleApplication
 
-Note: for simplicity, validation are not added.
+Note: for simplicity, validation are omitted.
 
 ## Call services:
 

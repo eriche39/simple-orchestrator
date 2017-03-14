@@ -19,7 +19,7 @@ Simple Orchestrator is a java library that can simplify your application develop
 
 ###4. Capable of selectively excute/skip tasks. a selector is simple to implement.
 
-###5. Support uniform ways to handle error and events.
+###5. Support uniform ways to handle errors and events.
 
 ###6. Support asynchronous tasks.
     the orchestrator execute needs to wait for an async task to finish only when another task
@@ -29,6 +29,9 @@ Simple Orchestrator is a java library that can simplify your application develop
     Easy swap in a replacement task, even dynamically select a version by using selector.
     Add gadget task for monitoring, logging, delaying etc.
 
+###8. Type safe:
+    Task, Context, Selector, Channel and Orchestrator are all static typed.
+    any mismatch will cause compile time error.
 
 ##The sample project shows most of it's power.
 
