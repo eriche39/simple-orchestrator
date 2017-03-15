@@ -16,7 +16,7 @@ import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
  * Created by eric on 3/12/17.
  */
 public interface CreditCardContext extends HistoryContext<String> {
-    CardApplication getCardApplication();
+    CardApplication getApplication();
     int getCreditScore();
     int getRiskScore();
     void setCardApproveStatus(boolean isApproved);

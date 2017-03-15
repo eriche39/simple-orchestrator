@@ -17,11 +17,9 @@ import com.github.ehe.simpleorchestrator.sample.context.AsyncCheckRiskContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
 import com.github.ehe.simpleorchestrator.sample.entity.AppliationResult;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
+import com.github.ehe.simpleorchestrator.sample.entity.LoanApplication;
 import com.github.ehe.simpleorchestrator.sample.selector.CardSelector;
-import com.github.ehe.simpleorchestrator.sample.task.AsyncCheckRiskTask;
-import com.github.ehe.simpleorchestrator.sample.task.CreditScoreTask;
-import com.github.ehe.simpleorchestrator.sample.task.CreditCardTask;
-import com.github.ehe.simpleorchestrator.sample.task.DebitCardTask;
+import com.github.ehe.simpleorchestrator.sample.task.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -48,6 +46,9 @@ import java.util.EnumMap;
 public class CardService {
 
     @Autowired
+    ValidationTask<CardApplication> validationTask;
+
+    @Autowired
     CreditScoreTask creditScoreTask;
 
     @Autowired
@@ -67,6 +68,11 @@ public class CardService {
 
     @Autowired
     Orchestrator<CardOrchestratorConext> orchestrator;
+
+    @Bean
+    ValidationTask<CardApplication> cardValidationTask(){
+        return new ValidationTask<CardApplication>();
+    }
 
     @Bean
     Channel<RiskCreditContext> riskCreditChannel(){
@@ -112,6 +118,6 @@ public class CardService {
         CardOrchestratorConext context = new CardOrchestratorConext() ;
         context.init(app);
         orchestrator.execute(context);
-        return new AppliationResult(context.getCardApplication().getPerson().getName(), context.isApproved(), context.getHistory());
+        return new AppliationResult(context.getApplication().getPerson().getName(), context.isApproved(), context.getHistory());
     }
 }

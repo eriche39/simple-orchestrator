@@ -15,15 +15,12 @@ import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by eric on 3/12/17.
- */
 @Component
 public class CreditCardTask implements Task<CreditCardContext> {
     @Override
     public void execute(CreditCardContext context) throws OrchestratorException {
         context.logHistory(this.getClass().getName());
-        CardApplication app = context.getCardApplication();
+        CardApplication app = context.getApplication();
         int creditScore = context.getCreditScore();
         if(creditScore>550 && app.getOccupation().length()>0 && context.getRiskScore()<50)
             context.setCardApproveStatus(true);

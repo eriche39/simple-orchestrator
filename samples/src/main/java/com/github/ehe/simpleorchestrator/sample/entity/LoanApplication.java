@@ -9,14 +9,25 @@
 
 package com.github.ehe.simpleorchestrator.sample.entity;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by eric on 3/12/17.
  */
 public class LoanApplication {
+
+    @NotNull
+    @Valid
     private Person person;
+
+    @Valid
     private Address address;
+
     private String occupation;
+
     private int salary;
+
     private int loanAmount;
 
     public LoanApplication(Person person, Address address, String occupation, int salary, int loadAmount) {

@@ -20,9 +20,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.Future;
 
-/**
- * Created by eric on 3/12/17.
- */
 @Component
 public class AsyncCheckRiskTask implements Task<AsyncCheckRiskContext> {
     private static List<String> blackList = Lists.newArrayList("111222333", "999999999");

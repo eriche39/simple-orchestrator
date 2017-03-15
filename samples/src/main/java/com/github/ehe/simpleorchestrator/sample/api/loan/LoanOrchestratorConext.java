@@ -13,6 +13,7 @@ import com.github.ehe.simpleorchestrator.exception.OrchestratorException;
 import com.github.ehe.simpleorchestrator.sample.context.AsyncCheckRiskContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.LoanContext;
+import com.github.ehe.simpleorchestrator.sample.context.ValidationContext;
 import com.github.ehe.simpleorchestrator.sample.entity.LoanApplication;
 
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.stream.Collectors;
 /**
  * Created by eric on 3/12/17.
  */
-public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRiskContext, LoanContext {
+public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRiskContext, LoanContext, ValidationContext<LoanApplication> {
     private LoanApplication application;
     private int creditScore;
     private boolean isApproved;
@@ -51,7 +52,7 @@ public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRis
     }
 
     @Override
-    public LoanApplication getLoanApplication() {
+    public LoanApplication getApplication() {
         return this.application;
     }
 

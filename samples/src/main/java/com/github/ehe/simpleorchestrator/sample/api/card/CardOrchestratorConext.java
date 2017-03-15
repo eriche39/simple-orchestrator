@@ -13,6 +13,7 @@ import com.github.ehe.simpleorchestrator.exception.OrchestratorException;
 import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
 import com.github.ehe.simpleorchestrator.sample.context.DebitCardContext;
+import com.github.ehe.simpleorchestrator.sample.context.ValidationContext;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-public class CardOrchestratorConext implements CreditScoreContext, CreditCardContext, DebitCardContext, CardSelectorConext {
+public class CardOrchestratorConext implements CreditScoreContext, CreditCardContext, DebitCardContext, CardSelectorConext, ValidationContext<CardApplication> {
     private CardApplication cardApplication;
     private int creditScore;
     private boolean isApproved;
@@ -48,7 +49,7 @@ public class CardOrchestratorConext implements CreditScoreContext, CreditCardCon
     }
 
     @Override
-    public CardApplication getCardApplication() {
+    public CardApplication getApplication() {
         return this.cardApplication;
     }
 

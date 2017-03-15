@@ -9,23 +9,29 @@
 
 package com.github.ehe.simpleorchestrator.sample.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.ehe.simpleorchestrator.sample.task.ValidationTask;
 
 import java.util.List;
 
-/**
- * Created by eric on 3/12/17.
- */
-@JsonPropertyOrder({"name", "approved", "history"})
+@JsonPropertyOrder({"name", "approved", "history", "errors"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AppliationResult {
     private String name;
     private boolean isApproved;
     private List<String> history;
 
+    private List<ValidationTask.ValidationError> errors;
+
     public AppliationResult(String name, boolean isApproved, List<String> history) {
         this.name = name;
         this.isApproved = isApproved;
         this.history = history;
+    }
+
+    public AppliationResult(List<ValidationTask.ValidationError> errors) {
+        this.errors = errors;
     }
 
     public String getName() {
@@ -50,6 +56,14 @@ public class AppliationResult {
 
     public void setHistory(List<String> history) {
         this.history = history;
+    }
+
+    public List<ValidationTask.ValidationError> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<ValidationTask.ValidationError> errors) {
+        this.errors = errors;
     }
 
 }

@@ -15,15 +15,12 @@ import com.github.ehe.simpleorchestrator.sample.context.DebitCardContext;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by eric on 3/12/17.
- */
 @Component
 public class DebitCardTask implements Task<DebitCardContext> {
     @Override
     public void execute(DebitCardContext context) throws OrchestratorException {
         context.logHistory(this.getClass().getName());
-        CardApplication app = context.getCardApplication();
+        CardApplication app = context.getApplication();
         if(app.getOccupation().length()>0)
             context.setCardApproveStatus(true);
         else

@@ -9,6 +9,8 @@
 
 package com.github.ehe.simpleorchestrator.sample.entity;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by eric on 3/12/17.
  */
@@ -16,6 +18,7 @@ public class CardApplication {
     private Person person;
     private String occupation;
     private boolean employed;
+    @NotNull
     private CardType cardType;
 
     public CardApplication(Person person, String occupation, boolean employed, CardType cardType) {

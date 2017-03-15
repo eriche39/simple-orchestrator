@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright (c) 2017. Eric He (eriche39@gmail.com)
-  ~
-  ~ This software is licensed under
-  ~
-  ~ MIT license
-  ~
-  -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,8 +11,8 @@
 
     <packaging>jar</packaging>
 
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>samples</name>
+    <description>Sample Prject for Simple Orchestrator</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

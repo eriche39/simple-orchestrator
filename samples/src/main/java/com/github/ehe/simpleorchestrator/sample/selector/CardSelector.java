@@ -26,6 +26,6 @@ public class CardSelector extends Selector<CardApplication.CardType, CardSelecto
 
     @Override
     public CardApplication.CardType getChannel(CardSelectorConext context) {
-        return context.getCardApplication().getCardType();
+        return context.getApplication().getCardType();
     }
 }

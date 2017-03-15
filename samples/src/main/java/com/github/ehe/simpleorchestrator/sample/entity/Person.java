@@ -9,12 +9,20 @@
 
 package com.github.ehe.simpleorchestrator.sample.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 /**
  * Created by eric on 3/12/17.
  */
 public class Person {
+    @NotNull
     private String name;
+
+    @NotNull
+    @Pattern(regexp = "^\\d{9}$")
     private String ssn;
+
     private Address address;
 
     public Person(String name, String ssn, Address address) {

@@ -16,7 +16,7 @@ import com.github.ehe.simpleorchestrator.sample.entity.LoanApplication;
  * Created by eric on 3/12/17.
  */
 public interface LoanContext extends HistoryContext<String> {
-    LoanApplication getLoanApplication();
+    LoanApplication getApplication();
     int getCreditScore();
     int getRiskScore();
     void setLoanApproveStatus(boolean isApproved);

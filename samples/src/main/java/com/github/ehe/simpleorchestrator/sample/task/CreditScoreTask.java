@@ -14,9 +14,6 @@ import com.github.ehe.simpleorchestrator.exception.OrchestratorException;
 import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by eric on 3/12/17.
- */
 @Component
 public class CreditScoreTask implements Task<CreditScoreContext> {
     @Override
