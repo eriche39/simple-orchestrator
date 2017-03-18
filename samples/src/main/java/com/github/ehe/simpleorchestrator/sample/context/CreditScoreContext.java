@@ -11,9 +11,6 @@ package com.github.ehe.simpleorchestrator.sample.context;
 
 import com.github.ehe.simpleorchestrator.context.HistoryContext;
 
-/**
- * Created by eric on 3/12/17.
- */
 public interface CreditScoreContext extends HistoryContext<String> {
     String getSsn();
     void setCreditScore(int score);

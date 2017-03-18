@@ -22,7 +22,7 @@ public class CreditScoreTask implements Task<CreditScoreContext> {
         String ssn = context.getSsn();
         if(ssn != null && ssn.length()>0){
             context.setCreditScore((ssn.charAt(0)-'0')*100);
-        }
-        context.setCreditScore(0);
+        } else
+            context.setCreditScore(0);
     }
 }

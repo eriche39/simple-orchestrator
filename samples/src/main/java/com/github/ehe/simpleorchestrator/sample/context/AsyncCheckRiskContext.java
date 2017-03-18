@@ -13,9 +13,6 @@ import com.github.ehe.simpleorchestrator.context.HistoryContext;
 
 import java.util.concurrent.Future;
 
-/**
- * Created by eric on 3/12/17.
- */
 public interface AsyncCheckRiskContext extends HistoryContext<String> {
     String getSsn();
     void setRiskScore(Future<Integer> score);

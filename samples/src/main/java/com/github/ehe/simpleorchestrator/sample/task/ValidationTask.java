@@ -52,6 +52,9 @@ public class ValidationTask<A> implements Task<ValidationContext<A>> {
             this.path = path;
         }
 
+        public ValidationError() {
+        }
+
         public String getMessage() {
             return message;
         }

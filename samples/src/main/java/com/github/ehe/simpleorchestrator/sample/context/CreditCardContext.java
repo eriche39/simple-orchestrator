@@ -12,9 +12,6 @@ package com.github.ehe.simpleorchestrator.sample.context;
 import com.github.ehe.simpleorchestrator.context.HistoryContext;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
 
-/**
- * Created by eric on 3/12/17.
- */
 public interface CreditCardContext extends HistoryContext<String> {
     CardApplication getApplication();
     int getCreditScore();

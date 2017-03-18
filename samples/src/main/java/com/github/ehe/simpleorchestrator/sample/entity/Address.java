@@ -9,9 +9,6 @@
 
 package com.github.ehe.simpleorchestrator.sample.entity;
 
-/**
- * Created by eric on 3/12/17.
- */
 public class Address {
     private String street;
     private String state;

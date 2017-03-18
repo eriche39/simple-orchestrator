@@ -22,9 +22,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-/**
- * Created by eric on 3/12/17.
- */
 public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRiskContext, LoanContext, ValidationContext<LoanApplication> {
     private LoanApplication application;
     private int creditScore;

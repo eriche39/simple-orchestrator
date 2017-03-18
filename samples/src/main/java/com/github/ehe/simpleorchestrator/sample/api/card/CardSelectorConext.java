@@ -14,8 +14,5 @@ import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
 import com.github.ehe.simpleorchestrator.sample.context.DebitCardContext;
 
-/**
- * Created by eric on 3/12/17.
- */
 public interface CardSelectorConext extends CreditScoreContext, CreditCardContext, DebitCardContext, AsyncCheckRiskContext {
 }

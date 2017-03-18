@@ -34,6 +34,9 @@ public class AppliationResult {
         this.errors = errors;
     }
 
+    public AppliationResult() {
+    }
+
     public String getName() {
         return name;
     }

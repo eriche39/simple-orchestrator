@@ -99,18 +99,6 @@ public class CardService {
 
     static private interface RiskCreditContext extends AsyncCheckRiskContext, CreditCardContext {};
 
-//    private final Channel<RiskCreditContext> riskCreditChannel =
-//            new Channel<RiskCreditContext>(asyncCheckRiskTask, new CreditCardTask());
-
-//    private final Selector<CardType, CardSelectorConext> cardSelector = new CardSelector(new EnumMap(CardType.class){{
-//        put(CardType.Credit, riskCreditChannel);
-//        put(CardType.Debit, debitCardTask);
-//    }});
-
-//    private Orchestrator<CardOrchestratorConext> orchestrator =
-//            new OrchestratorImpl<CardOrchestratorConext>(
-//                    new CreditScoreTask(), cardSelector);
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
