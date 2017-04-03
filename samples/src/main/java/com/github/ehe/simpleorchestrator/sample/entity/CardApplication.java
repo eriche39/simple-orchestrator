@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -60,7 +62,7 @@ public class CardApplication {
         this.cardType = cardType;
     }
 
-    public static enum CardType{
+    public enum CardType{
         Credit, Debit
     }
 }

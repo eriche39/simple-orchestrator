@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -11,7 +13,7 @@ package com.github.ehe.simpleorchestrator.sample.api.loan;
 
 import com.github.ehe.simpleorchestrator.Orchestrator;
 import com.github.ehe.simpleorchestrator.impl.OrchestratorImpl;
-import com.github.ehe.simpleorchestrator.sample.entity.AppliationResult;
+import com.github.ehe.simpleorchestrator.sample.entity.ApplicationResult;
 import com.github.ehe.simpleorchestrator.sample.entity.LoanApplication;
 import com.github.ehe.simpleorchestrator.sample.exception.ValidationException;
 import com.github.ehe.simpleorchestrator.sample.task.AsyncCheckRiskTask;
@@ -21,9 +23,7 @@ import com.github.ehe.simpleorchestrator.sample.task.ValidationTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -35,7 +35,7 @@ import javax.ws.rs.core.MediaType;
  *
  * Orchestration:
  *
- * application --> CreditScoreTask -> AsyncCheckRiskTask -> LoanTask   ->O AppliationResult
+ * application --> CreditScoreTask -> AsyncCheckRiskTask -> LoanTask   ->O ApplicationResult
  *
  */
 
@@ -44,43 +44,38 @@ import javax.ws.rs.core.MediaType;
 public class LoanService {
 
     @Autowired
-    ValidationTask<LoanApplication> validationTask;
+    private ValidationTask<LoanApplication> validationTask;
 
     @Autowired
-    CreditScoreTask creditScoreTask;
+    private CreditScoreTask creditScoreTask;
 
     @Autowired
-    AsyncCheckRiskTask asyncCheckRiskTask;
+    private AsyncCheckRiskTask asyncCheckRiskTask;
 
     @Autowired
-    LoanTask loanTask;
+    private LoanTask loanTask;
 
     @Autowired
-    Orchestrator<LoanOrchestratorConext> orchestrator;
+    private Orchestrator<LoanOrchestratorContext> orchestrator;
 
     @Bean
-    ValidationTask<LoanApplication> loanValidationTask(){
-        return new ValidationTask<LoanApplication>();
-    }
-
-    @Bean
-    Orchestrator<LoanOrchestratorConext> loanOrchestrator(){
-        return new OrchestratorImpl<LoanOrchestratorConext>(
+    private Orchestrator<LoanOrchestratorContext> loanOrchestrator(){
+        return new OrchestratorImpl<LoanOrchestratorContext>(
                 validationTask,creditScoreTask, asyncCheckRiskTask, loanTask);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public AppliationResult applyloan(LoanApplication app) {
-        LoanOrchestratorConext context = new LoanOrchestratorConext() ;
+    public ApplicationResult applyloan(LoanApplication app) {
+        LoanOrchestratorContext context = new LoanOrchestratorContext() ;
         context.init(app);
         try {
             orchestrator.execute(context);
         } catch (ValidationException e){
-            return new AppliationResult(e.getErrors());
+            return new ApplicationResult(e.getErrors());
         }
-        return new AppliationResult(context.getApplication().getPerson().getName(), context.isApproved(), context.getHistory());
+        return new ApplicationResult(context.getApplication().getPerson().getName(), context.isApproved(), context.getHistory());
     }
 
 }

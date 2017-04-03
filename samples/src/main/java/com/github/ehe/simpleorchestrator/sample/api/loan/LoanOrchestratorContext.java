@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -22,7 +24,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRiskContext, LoanContext, ValidationContext<LoanApplication> {
+public class LoanOrchestratorContext implements CreditScoreContext, AsyncCheckRiskContext, LoanContext, ValidationContext<LoanApplication> {
     private LoanApplication application;
     private int creditScore;
     private boolean isApproved;
@@ -62,10 +64,7 @@ public class LoanOrchestratorConext implements CreditScoreContext, AsyncCheckRis
     public int getRiskScore() {
         try {
             return this.riskScore.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            throw new OrchestratorException("asyncRiskTask Failed", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             throw new OrchestratorException("asyncRiskTask Failed", e);
         }

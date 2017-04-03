@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -17,24 +19,24 @@ import java.util.List;
 
 @JsonPropertyOrder({"name", "approved", "history", "errors"})
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AppliationResult {
+public class ApplicationResult {
     private String name;
     private boolean isApproved;
     private List<String> history;
 
     private List<ValidationTask.ValidationError> errors;
 
-    public AppliationResult(String name, boolean isApproved, List<String> history) {
+    public ApplicationResult(String name, boolean isApproved, List<String> history) {
         this.name = name;
         this.isApproved = isApproved;
         this.history = history;
     }
 
-    public AppliationResult(List<ValidationTask.ValidationError> errors) {
+    public ApplicationResult(List<ValidationTask.ValidationError> errors) {
         this.errors = errors;
     }
 
-    public AppliationResult() {
+    public ApplicationResult() {
     }
 
     public String getName() {

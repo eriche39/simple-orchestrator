@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -15,9 +17,8 @@ import com.github.ehe.simpleorchestrator.impl.OrchestratorImpl;
 import com.github.ehe.simpleorchestrator.impl.Selector;
 import com.github.ehe.simpleorchestrator.sample.context.AsyncCheckRiskContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
-import com.github.ehe.simpleorchestrator.sample.entity.AppliationResult;
+import com.github.ehe.simpleorchestrator.sample.entity.ApplicationResult;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
-import com.github.ehe.simpleorchestrator.sample.entity.LoanApplication;
 import com.github.ehe.simpleorchestrator.sample.selector.CardSelector;
 import com.github.ehe.simpleorchestrator.sample.task.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.EnumMap;
 
@@ -36,7 +40,7 @@ import java.util.EnumMap;
  *
  *                                                   DebitCardTask --------------------------------------
  *                                                  /                                                     \
- * application --> CheckCreditTask -> cardSelector x                                                      O AppliationResult
+ * application --> CheckCreditTask -> cardSelector x                                                      O ApplicationResult
  *                                                  \                                                     /
  *                                                   riskCreditChannel[AsyncCheckRiskTask, CreditCardTask]
  *
@@ -46,41 +50,41 @@ import java.util.EnumMap;
 public class CardService {
 
     @Autowired
-    ValidationTask<CardApplication> validationTask;
+    private ValidationTask<CardApplication> validationTask;
 
     @Autowired
-    CreditScoreTask creditScoreTask;
+    private CreditScoreTask creditScoreTask;
 
     @Autowired
-    DebitCardTask debitCardTask;
+    private DebitCardTask debitCardTask;
 
     @Autowired
-    CreditCardTask creditCardTask;
+    private CreditCardTask creditCardTask;
 
     @Autowired
-    AsyncCheckRiskTask asyncCheckRiskTask;
+    private AsyncCheckRiskTask asyncCheckRiskTask;
 
     @Autowired
-    Channel<RiskCreditContext> riskCreditChannel;
+    private Channel<RiskCreditContext> riskCreditChannel;
 
     @Autowired
-    Selector<CardApplication.CardType, CardSelectorConext> cardSelector;
+    private Selector<CardApplication.CardType, CardSelectorContext> cardSelector;
 
     @Autowired
-    Orchestrator<CardOrchestratorConext> orchestrator;
+    private Orchestrator<CardOrchestratorContext> orchestrator;
 
     @Bean
-    ValidationTask<CardApplication> cardValidationTask(){
+    private ValidationTask<CardApplication> cardValidationTask(){
         return new ValidationTask<CardApplication>();
     }
 
     @Bean
-    Channel<RiskCreditContext> riskCreditChannel(){
+    private Channel<RiskCreditContext> riskCreditChannel(){
         return new Channel<RiskCreditContext>(asyncCheckRiskTask, creditCardTask);
     }
 
     @Bean
-    Selector<CardApplication.CardType, CardSelectorConext> cardSelector(){
+    private Selector<CardApplication.CardType, CardSelectorContext> cardSelector(){
         return new CardSelector(new EnumMap(CardApplication.CardType.class){{
             put(CardApplication.CardType.Credit, riskCreditChannel);
             put(CardApplication.CardType.Debit, debitCardTask);
@@ -88,8 +92,8 @@ public class CardService {
     }
 
     @Bean
-    Orchestrator<CardOrchestratorConext> cardOrchestrator(){
-        return new OrchestratorImpl<CardOrchestratorConext>(creditScoreTask, cardSelector);
+    private Orchestrator<CardOrchestratorContext> cardOrchestrator(){
+        return new OrchestratorImpl<CardOrchestratorContext>(creditScoreTask, cardSelector);
     }
 
     @PostConstruct
@@ -97,15 +101,15 @@ public class CardService {
         System.out.println("aaa");
     }
 
-    static private interface RiskCreditContext extends AsyncCheckRiskContext, CreditCardContext {};
+    private interface RiskCreditContext extends AsyncCheckRiskContext, CreditCardContext {}
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public AppliationResult applyCard(CardApplication app) {
-        CardOrchestratorConext context = new CardOrchestratorConext() ;
+    public ApplicationResult applyCard(CardApplication app) {
+        CardOrchestratorContext context = new CardOrchestratorContext() ;
         context.init(app);
         orchestrator.execute(context);
-        return new AppliationResult(context.getApplication().getPerson().getName(), context.isApproved(), context.getHistory());
+        return new ApplicationResult(context.getApplication().getPerson().getName(), context.isApproved(), context.getHistory());
     }
 }

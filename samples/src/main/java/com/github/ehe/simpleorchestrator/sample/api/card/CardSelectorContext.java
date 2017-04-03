@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
@@ -14,5 +16,5 @@ import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
 import com.github.ehe.simpleorchestrator.sample.context.DebitCardContext;
 
-public interface CardSelectorConext extends CreditScoreContext, CreditCardContext, DebitCardContext, AsyncCheckRiskContext {
+public interface CardSelectorContext extends CreditScoreContext, CreditCardContext, DebitCardContext, AsyncCheckRiskContext {
 }

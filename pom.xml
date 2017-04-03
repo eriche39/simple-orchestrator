@@ -13,6 +13,7 @@
 
     <modules>
         <module>core</module>
+        <module>meta</module>
         <module>samples</module>
     </modules>
 

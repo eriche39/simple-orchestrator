@@ -4,7 +4,7 @@ Simple Orchestrator is a java library that can simplify your application develop
 
 ## Features that just done that:
 
-###1. Promote modulization and isolation:
+###1. Promote modularization and isolation:
     Create your functional blocks and services as Tasks.
     Task can only sees it's context, such isolated from everything else.
 
@@ -17,7 +17,7 @@ Simple Orchestrator is a java library that can simplify your application develop
     Task can be added into any orchestrator as long as the orchestrator's context is compatible.
     Create an orchestrator context is simple and like an entity class.
 
-###4. Capable of selectively excute/skip tasks. a selector is simple to implement.
+###4. Capable of selectively execute/skip tasks. a selector is simple to implement.
 
 ###5. Support uniform ways to handle errors and events.
 

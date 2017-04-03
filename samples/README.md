@@ -6,7 +6,7 @@ Two sample RESTful services are provided.
 ## Start the application:
 run SampleApplication
 
-Note: for simplicity, validation are omitted.
+Note: for simplicity, validation are not complete.
 
 ## Call services:
 
@@ -70,4 +70,5 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 	"loanAmount": 200000
 }' "http://localhost:8080/application/loan"
 
-
+5. in browse, goto url: http://localhost:8080/application/admin/orchestrators
+all runtime orchestrators' components will show in a json format

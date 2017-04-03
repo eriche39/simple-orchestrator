@@ -1,17 +1,19 @@
 /*
- * Copyright (c) 2017. Eric He (eriche39@gmail.com)
  *
- * This software is licensed under
- *
- * MIT license
+ *  * Copyright (c) 2017. Eric He (eriche39@gmail.com)
+ *  *
+ *  * This software is licensed under
+ *  *
+ *  * MIT license
+ *  *
  *
  */
 
 package com.github.ehe.simpleorchestrator.sample.api.card;
 
 import com.github.ehe.simpleorchestrator.exception.OrchestratorException;
-import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.CreditCardContext;
+import com.github.ehe.simpleorchestrator.sample.context.CreditScoreContext;
 import com.github.ehe.simpleorchestrator.sample.context.DebitCardContext;
 import com.github.ehe.simpleorchestrator.sample.context.ValidationContext;
 import com.github.ehe.simpleorchestrator.sample.entity.CardApplication;
@@ -22,7 +24,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-public class CardOrchestratorConext implements CreditScoreContext, CreditCardContext, DebitCardContext, CardSelectorConext, ValidationContext<CardApplication> {
+public class CardOrchestratorContext implements CreditScoreContext, CreditCardContext, DebitCardContext, CardSelectorContext, ValidationContext<CardApplication> {
     private CardApplication cardApplication;
     private int creditScore;
     private boolean isApproved;
@@ -62,10 +64,7 @@ public class CardOrchestratorConext implements CreditScoreContext, CreditCardCon
     public int getRiskScore() {
         try {
             return this.riskScore.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            throw new OrchestratorException("asyncRiskTask Failed", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             throw new OrchestratorException("asyncRiskTask Failed", e);
         }
