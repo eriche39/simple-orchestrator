@@ -15,6 +15,7 @@ import com.github.ehe.simpleorchestrator.sample.api.card.CardService;
 import com.github.ehe.simpleorchestrator.sample.api.devadmin.AdminService;
 import com.github.ehe.simpleorchestrator.sample.api.loan.LoanService;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.servlet.ServletProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,5 +26,6 @@ public class JerseyConfig extends ResourceConfig {
         register(CardService.class);
         register(LoanService.class);
         register(AdminService.class);
+        property(ServletProperties.FILTER_FORWARD_ON_404, true);
     }
 }

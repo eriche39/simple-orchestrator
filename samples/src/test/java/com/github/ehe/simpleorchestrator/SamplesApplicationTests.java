@@ -75,7 +75,7 @@ public class SamplesApplicationTests {
 
     //test ssn is not blacklisted and application status is false
     @Test
-    public void noblackListed() {
+    public void notBlackListed() {
         ResponseEntity<ApplicationResult> entity = this.restTemplate.postForEntity("/application/card",
                 ssn4CardApplication, ApplicationResult.class);
         assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);

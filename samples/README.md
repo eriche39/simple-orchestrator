@@ -72,3 +72,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 
 5. in browse, goto url: http://localhost:8080/application/admin/orchestrators
 all runtime orchestrators' components will show in a json format
+
+6. visualization, goto url: http://localhost:8080/orchestrators.html
+UI powered with Mermaid.js will retrieve run time orchestrators meta data and render their structure in a flow chart style.
+![Visual](visual.png)
