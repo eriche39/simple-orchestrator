@@ -34,11 +34,13 @@ Simple Orchestrator is a java library that can simplify your application develop
     any mismatch will cause compile time error.
 
 ### 9. Visualization:
-    Meta data and visualization is supported
+    Build-in support for meta data and visualization
+    refer to "visualization" sub project.
     
     sample orchestrator visulization result:
-![Visual](samples/visual.png)
-## The sample project shows most of it's power.
+<img src="https://raw.githubusercontent.com/eriche39/simple-orchestrator/master/samples/visual.png" width=490 height=520 />
+
+## The sample project shows most of the features.
 
 ## License
 

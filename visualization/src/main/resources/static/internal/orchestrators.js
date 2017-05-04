@@ -4,7 +4,7 @@
         startOnLoad:false
     });
     $(function(){
-        $.get( "application/admin/orchestrators", function( data ) {
+        $.get( "../internal/meta", function( data ) {
             var element = document.querySelector("div.mermaid");
 
             var insertSvg = function(svgCode, bindFunctions){

@@ -9,7 +9,7 @@
  *
  */
 
-package com.github.ehe.simpleorchestrator.sample.api.devadmin;
+package com.github.ehe.simpleorchestrator.visual.api.meta;
 
 import com.github.ehe.simpleorchestrator.meta.Meta;
 import com.github.ehe.simpleorchestrator.meta.MetaInfoFactory;
@@ -21,13 +21,12 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Dev Admin
  * get Orchestrator meta data
  */
 
 @Component
-@Path("/application/admin/orchestrators")
-public class AdminService {
+@Path("/internal/meta")
+public class MetaService {
 
     @Autowired
     private MetaInfoFactory metaFactory;

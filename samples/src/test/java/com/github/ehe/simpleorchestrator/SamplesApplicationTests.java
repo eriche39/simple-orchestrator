@@ -112,7 +112,7 @@ public class SamplesApplicationTests {
     //test dev admin to get meta info
     @Test
     public void metaApplication() throws JsonProcessingException {
-        ResponseEntity<List> entity = this.restTemplate.getForEntity("/application/admin/orchestrators",
+        ResponseEntity<List> entity = this.restTemplate.getForEntity("/internal/meta",
                List.class);
         List<Meta> list = entity.getBody();
         System.out.println(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(list));
