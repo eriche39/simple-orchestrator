@@ -8,9 +8,9 @@ run SampleApplication
 
 Note: for simplicity, validation are not complete.
 
-## Call services:
+## Services:
 
-#### 1. call card application service with credit card application:
+#### 1. Calling card application service with credit card application:
 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 1afc1cad-5ea3-c618-2ef1-3ee4f38c7b0c" -d '{
 	"person" : {
@@ -25,7 +25,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 	"cardType": "Credit"
 }' "http://localhost:8080/application/card"
 
-#### 2. call card application service with debit card application:
+#### 2. Calling card application service with debit card application:
 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: cd7f6813-38b6-12e2-6daf-9f358fc475b2" -d '{
 	"person" : {
@@ -40,7 +40,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 	"cardType": "Debit"
 }' "http://localhost:8080/application/card"
 
-#### 3. call card application service with black listed ssn:
+#### 3. Calling card application service with black listed ssn:
 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 5be4db59-d07f-feb4-2463-9564506675c2" -d '{
 	"person" : {
@@ -55,7 +55,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 	"cardType": "Credit"
 }' "http://localhost:8080/application/card"
 
-#### 4. call loan application service:
+#### 4. Calling loan application service:
 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 985c3487-5cb1-820f-f599-ade20204d154" -d '{
 	"person" : {
@@ -70,9 +70,11 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 	"loanAmount": 200000
 }' "http://localhost:8080/application/loan"
 
-#### 5. in browse, goto url: http://localhost:8080/internal/meta
+#### 5. Browse to: http://localhost:8080/internal/meta
 all runtime orchestrators' components will show in a json format
 
-#### 6. visualization, goto url: http://localhost:8080/internal/orchestrators.html
+## Visualization 
+#### Browse to: http://localhost:8080/internal/orchestrators.html
 UI powered with Mermaid.js will retrieve run time orchestrators meta data and render their structure in a flow chart style.
+
 <img src="https://raw.githubusercontent.com/eriche39/simple-orchestrator/master/samples/visual.png" width=490 height=520 />

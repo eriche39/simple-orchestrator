@@ -23,8 +23,6 @@ import com.github.ehe.simpleorchestrator.exception.OrchestratorExceptionHandler;
  * another usage is to provide a way for selector to choose a list of tasks
  * <p>
  * it should to be used directly without subclass
- *
- * @param <P>
  */
 
 public class Channel<P extends Context> extends AbstractListTask<P> implements Task<P> {

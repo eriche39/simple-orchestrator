@@ -7,7 +7,7 @@ Provides UI to visualize runtime orchestrator's structure
         <dependency>
             <groupId>com.github.eriche39</groupId>
             <artifactId>orchestrator-visualization</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
         
 #### 2. add to ResourceConfig:

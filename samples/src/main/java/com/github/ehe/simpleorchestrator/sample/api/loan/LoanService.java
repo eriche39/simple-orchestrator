@@ -35,7 +35,7 @@ import javax.ws.rs.core.MediaType;
  *
  * Orchestration:
  *
- * application --> CreditScoreTask -> AsyncCheckRiskTask -> LoanTask   ->O ApplicationResult
+ * application --&gt; CreditScoreTask --&gt; AsyncCheckRiskTask --&gt; LoanTask   --&gt; O ApplicationResult
  *
  */
 

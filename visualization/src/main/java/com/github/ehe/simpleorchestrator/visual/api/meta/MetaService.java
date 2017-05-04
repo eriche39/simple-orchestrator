@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * get Orchestrator meta data
+ * Rest service for discovery meta data of runtime {@link com.github.ehe.simpleorchestrator.Orchestrator}s
  */
 
 @Component
@@ -36,5 +36,4 @@ public class MetaService {
     public List<Meta> getOrchestrators() {
         return metaFactory.getOrchestratorMetas();
     }
-
 }

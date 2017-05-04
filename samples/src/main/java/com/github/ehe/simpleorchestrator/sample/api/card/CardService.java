@@ -40,7 +40,7 @@ import java.util.EnumMap;
  *
  *                                                   DebitCardTask --------------------------------------
  *                                                  /                                                     \
- * application --> CheckCreditTask -> cardSelector x                                                      O ApplicationResult
+ * application --&gt; CheckCreditTask --&gt; cardSelector x                                                      O ApplicationResult
  *                                                  \                                                     /
  *                                                   riskCreditChannel[AsyncCheckRiskTask, CreditCardTask]
  *

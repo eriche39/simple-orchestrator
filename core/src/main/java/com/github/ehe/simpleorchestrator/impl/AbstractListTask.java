@@ -41,7 +41,7 @@ public abstract class AbstractListTask<P extends Context> {
      * @param ts the list of tasks to be executed sequentially
      */
     public AbstractListTask(Task<? super P>... ts) {
-        List<Task<? super P>> list = new ArrayList<>();
+        List<Task<? super P>> list = new ArrayList();
         Collections.addAll(list, ts);
         tasks = list;
     }
