@@ -9,10 +9,16 @@
 
             var insertSvg = function(svgCode, bindFunctions){
                 element.innerHTML = svgCode;
+
+                if(typeof callback !== 'undefined'){
+                    callback('svgGraph');
+                }
+                bindFunctions(element);
             };
 
-            var graphDefinition = getGraphs(data); //'graph TB\na-->b';
-            var graph = mermaidAPI.render('graphDiv', graphDefinition, insertSvg);
+
+            var graphDefinition = getGraphs(data);
+            var graph = mermaidAPI.render('svgGraph', graphDefinition, insertSvg, element);
         });
 
         function getGraphs(data){
@@ -114,7 +120,26 @@
                 } else {
                     lines.push(prevNode+"-->"+id);
                 }
+                var tooltip = getTooltip(task);
+                lines.push('click '+id+' callback "<p align=\'left\'>'+ tooltip+'</p>"');
             });
             return id;
+         }
+
+         function getTooltip(task){
+            if(task.type === 'SELECTOR'){
+                task = $.extend(true, {}, task);
+                var map = task.map;
+                for(var key in map){
+                    //stop the tree
+                    map[key] = map[key].beanName || className;
+                }
+                task.map = JSON.stringify(map).replace(/[\"|\{|\}]/g, "").replace(/,/g,"<br/>&emsp;&emsp;");
+            }
+            return JSON.stringify(task).replace(/[\"|\{|\}]/g, "").replace(/,/g,"<br/>");
+         }
+
+         var callback = function(task){
+            console.log(task);
          }
     });

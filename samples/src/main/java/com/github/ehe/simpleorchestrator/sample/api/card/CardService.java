@@ -75,12 +75,12 @@ public class CardService {
 
     @Bean
     private ValidationTask<CardApplication> cardValidationTask(){
-        return new ValidationTask<CardApplication>();
+        return new ValidationTask<>();
     }
 
     @Bean
     private Channel<RiskCreditContext> riskCreditChannel(){
-        return new Channel<RiskCreditContext>(asyncCheckRiskTask, creditCardTask);
+        return new Channel<>(asyncCheckRiskTask, creditCardTask);
     }
 
     @Bean
@@ -93,7 +93,7 @@ public class CardService {
 
     @Bean
     private Orchestrator<CardOrchestratorContext> cardOrchestrator(){
-        return new OrchestratorImpl<CardOrchestratorContext>(creditScoreTask, cardSelector);
+        return new OrchestratorImpl<>(creditScoreTask, cardSelector);
     }
 
     @PostConstruct

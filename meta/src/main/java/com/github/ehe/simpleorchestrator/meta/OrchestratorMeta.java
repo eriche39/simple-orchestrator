@@ -20,8 +20,8 @@ import java.util.List;
 public class OrchestratorMeta extends Meta {
     private List<Meta> taskList = new ArrayList<>();
 
-    public OrchestratorMeta(String beanName, String className) {
-        super(Type.ORCHESTRATOR, beanName, className);
+    public OrchestratorMeta(String beanName, String className, String context, List<String> parents) {
+        super(Type.ORCHESTRATOR, beanName, className, context, parents);
     }
 
     public List<Meta> getTaskList() {

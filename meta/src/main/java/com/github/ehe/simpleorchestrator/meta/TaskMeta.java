@@ -11,12 +11,14 @@
 
 package com.github.ehe.simpleorchestrator.meta;
 
+import java.util.List;
+
 /**
  * Meta data for Task
  */
 public class TaskMeta extends Meta {
 
-    public TaskMeta(String beanName, String className) {
-        super(Type.TASK, beanName, className);
+    public TaskMeta(String beanName, String className, String context, List<String> parents) {
+        super(Type.TASK, beanName, className, context, parents);
     }
 }

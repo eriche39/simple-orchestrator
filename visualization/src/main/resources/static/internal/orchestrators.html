@@ -13,11 +13,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="lib/mermaid.js"></script>
+    <title>Orchestrators</title>
+    <script src="lib/mermaidAPI.min.js"></script>
     <script src="lib/jquery.min.js"></script>
     <script src="orchestrators.js"></script>
-    <link rel="stylesheet" href="lib/mermaid.css">
+    <link rel="stylesheet" href="lib/mermaid.forest.css">
 
     <style>
         .node circle {
@@ -25,11 +25,16 @@
           stroke: #CCCCFF;
           stroke-width: 2px;
         }
+        a[title]:hover:after {
+          content: attr(title);
+          position: absolute;
+          left: 4px;
+        }
     </style>
 </head>
 <body>
 <h2 style="margin-left:40px;">Live Orchestrators</h2>
-<div class="mermaid">
+<div id="mermaid" class="mermaid">
 </div>
 
 </body>

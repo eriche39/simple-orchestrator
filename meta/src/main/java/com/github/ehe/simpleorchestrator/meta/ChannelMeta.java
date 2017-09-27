@@ -20,8 +20,8 @@ import java.util.List;
 public class ChannelMeta extends Meta {
     private List<Meta> taskList = new ArrayList<>();
 
-    public ChannelMeta(String beanName, String className) {
-        super(Type.CHANNEL, beanName, className);
+    public ChannelMeta(String beanName, String className, String context, List<String> parents) {
+        super(Type.CHANNEL, beanName, className, context, parents);
     }
 
     public List<Meta> getTaskList() {

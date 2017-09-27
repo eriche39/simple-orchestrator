@@ -11,6 +11,7 @@
 
 package com.github.ehe.simpleorchestrator.meta;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,8 +20,8 @@ import java.util.Map;
 public class SelectorMeta extends Meta {
     private Map<String, Meta> map;
 
-    public SelectorMeta(String beanName, String className) {
-        super(Type.SELECTOR, beanName, className);
+    public SelectorMeta(String beanName, String className, String context, List<String> parents) {
+        super(Type.SELECTOR, beanName, className, context, parents);
     }
 
     public Map<String, Meta> getMap() {

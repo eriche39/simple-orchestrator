@@ -60,7 +60,7 @@ public class LoanService {
 
     @Bean
     private Orchestrator<LoanOrchestratorContext> loanOrchestrator(){
-        return new OrchestratorImpl<LoanOrchestratorContext>(
+        return new OrchestratorImpl<>(
                 validationTask,creditScoreTask, asyncCheckRiskTask, loanTask);
     }
 
